@@ -1,0 +1,33 @@
+{
+    "error": {
+        "command": "An error occurred while executing the command",
+        "cooldown": "Please wait {time} seconds before using {command} again",
+        "adminRequired": "You must be an admin to use this command",
+        "botAdminRequired": "Bot must be admin to perform this action",
+        "groupOnly": "This command can only be used in groups",
+        "invalidArguments": "Invalid args usage: {usage}",
+        "accessDenied": "Access denied",
+        "noCodeProvided": "No code provided",
+        "media": {
+            "invalidUrl": "Invalid URL provided",
+            "downloadFailed": "Failed to download media",
+            "processingFailed": "Failed to process media",
+            "tooLarge": "Media file too large Maximum size: {size}MB",
+            "unsupportedType": "Unsupported media type",
+            "noMediaQuoted": "Please reply to a media message"
+        }
+    },
+    "success": {
+        "Kicked": "user has been kicked",
+        "Added": "user has been added",
+        "Promoted": "user has been promoted to admin",
+        "Demoted": "Admin has been demoted",
+        "descriptionUpdated": "Group description has been updated",
+        "media": {
+            "downloaded": "Media downloaded successfully",
+            "processed": "Media processed successfully",
+            "uploading": "Uploading media...",
+            "downloading": "Downloading: {progress}%"
+        }
+    }
+}

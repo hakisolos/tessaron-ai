@@ -13,7 +13,7 @@ const messages = require('./lib/messages.json');
 const { isOwner } = require('./lib/utils');
 
 const sessionPath = path.join(__dirname, "./lib/session");
-
+/*
 (async () => {
     await fs.mkdir(sessionPath, { recursive: true });
     try {
@@ -23,19 +23,29 @@ const sessionPath = path.join(__dirname, "./lib/session");
     }
 })();
 
+*/
+
 const db = new Database(config.MONGO_URL);
 const qdb = new QuickDB();
 
-const plug = (await fs.readdir("./plugins")).filter(file => file.endsWith(".js"));
-console.log('Initializing plugins:', plug);
-for (const file of plug) {
-    require(`./plugins/${file}`);
+
+async function loadPlugins() {
+    const plug = (await fs.readdir("./plugins")).filter(file => file.endsWith(".js"));
+    console.log('Initializing plugins:', plug);
+
+    for (const file of plug) {
+        require(`./plugins/${file}`);
+    }
 }
-console.log("Installed commands:", Array.from(commands.keys()));
+
+loadPlugins(); 
+
 
 const start = async () => {
     try {
         console.log("Initializing bot...");
+        await db.connect();
+        console.log("Database connected successfully!");
         const { state, saveCreds } = await useMultiFileAuthState(sessionPath);
         
         const haki = makeWASocket({
