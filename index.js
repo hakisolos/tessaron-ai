@@ -62,6 +62,7 @@ const start = async () => {
                     }
                 } else if (connection === 'open') {
                     console.log('Connected to WhatsAppBot');
+                    await haki.sendMessage(haki.user.id, {text: "bot connected"})
                 }
             }
 
